@@ -18,6 +18,18 @@ class _Menu_ScreenState extends State<Menu_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("All Products"),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.add_shopping_cart),
+            onPressed: () {
+              Get.toNamed('/cart');
+            },
+          )
+        ],
+      ),
       body: Center(
         child: FutureBuilder(
           future: rootBundle.loadString("lib/Assets/json.json"),
@@ -64,7 +76,9 @@ class _Menu_ScreenState extends State<Menu_Screen> {
                           if (!addedProducts.contains(data)) {
                             addedProducts.add(data[i]);
                           }
-                          Get.toNamed('/cart');
+                          GetSnackBar(
+                            title: 'Succfully done',
+                          );
                         },
                         child: Container(
                           height: 40,

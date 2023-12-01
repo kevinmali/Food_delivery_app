@@ -20,7 +20,7 @@ class _Cart_pageState extends State<Cart_page> {
         itemBuilder: (ctx, i) {
           return Card(
             child: ListTile(
-              title: Text("${addedProducts[i].foodName}"),
+              title: Text("${addedProducts[i].foodItems[i]}"),
             ),
           );
         },
