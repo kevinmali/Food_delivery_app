@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../Utils/Global/varibals.dart';
 import 'Model/json_model.dart';
 
 class Menu_Screen extends StatefulWidget {
@@ -13,8 +14,6 @@ class Menu_Screen extends StatefulWidget {
 }
 
 class _Menu_ScreenState extends State<Menu_Screen> {
-  String? data;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,36 +29,35 @@ class _Menu_ScreenState extends State<Menu_Screen> {
               return ListView.builder(
                 itemCount: data.length,
                 itemBuilder: (context, i) => Container(
-                  height: 800,
+                  height: 200,
                   width: double.infinity,
                   margin: EdgeInsets.all(15),
                   child: Column(
                     children: [
                       Padding(
                         padding: EdgeInsets.only(top: 28.0),
-                        child: Text(
-                          "${data[i].foodItems[i]['foodName']}",
-                          style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black),
+                        child: Center(
+                          child: Text(
+                            "${data[i].foodItems[i]['foodName']}",
+                            style: Globals.fontstyle,
+                          ),
                         ),
                       ),
                       (data[i].foodItems[i]['foodType'] == null)
                           ? Text("")
                           : Padding(
                               padding: EdgeInsets.only(top: 28.0),
-                              child: Text(
-                                "${data[i].foodItems[i]['foodType']}",
-                                style: TextStyle(
-                                    fontSize: 30, fontWeight: FontWeight.bold),
+                              child: Center(
+                                child: Text(
+                                    "${data[i].foodItems[i]['foodType']}",
+                                    style: Globals.typestyle),
                               ),
                             ),
                       Center(
                         child: Text("${data[i].foodItems[i]['calories']}",
-                            style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold)),
+                            style: Globals.pricestyle),
                       ),
+                      Divider(color: Colors.blueGrey, thickness: 5),
                     ],
                   ),
                 ),
