@@ -9,23 +9,8 @@ class AuthHelper {
   FirebaseAuth auth = FirebaseAuth.instance;
   GoogleSignIn googleSignIn = GoogleSignIn();
 
-  Future<Map<String, dynamic>> anonymouslylogin() async {
-    Map<String, dynamic> res = {};
-
-    try {
-      UserCredential userCredential = await auth.signInAnonymously();
-
-      res['user'] = userCredential.user;
-    } on FirebaseAuthException catch (e) {
-      res['error'] = e.code;
-    }
-    return res;
-  }
-
-  Future<Map<String, dynamic>> signup(
-      {required String email, required String password}) async {
-    Map<String, dynamic> res = {};
-
+  Future<Map> signup({required String email, required String password}) async {
+    Map res = {};
     try {
       UserCredential userCredential = await auth.createUserWithEmailAndPassword(
           email: email, password: password);

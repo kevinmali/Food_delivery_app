@@ -207,27 +207,6 @@ class _login_pageState extends State<login_page> {
                         ),
                       ),
                       SizedBox(width: 25),
-                      GestureDetector(
-                        onTap: () async {
-                          Map<String, dynamic> res =
-                              await AuthHelper.authHelper.anonymouslylogin();
-                          if (res['user'] != null) {
-                            Get.to(Home_Screen());
-                          }
-                        },
-                        child: Container(
-                          padding: EdgeInsets.all(20),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white),
-                            borderRadius: BorderRadius.circular(16),
-                            color: Colors.grey[200],
-                          ),
-                          child: Image.asset(
-                            "lib/Assets/Images/facebook.png",
-                            height: 40,
-                          ),
-                        ),
-                      ),
                     ],
                   ),
 
@@ -242,7 +221,9 @@ class _login_pageState extends State<login_page> {
                       ),
                       const SizedBox(width: 4),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.toNamed("/sign");
+                        },
                         child: Text(
                           'Register now',
                           style: TextStyle(
