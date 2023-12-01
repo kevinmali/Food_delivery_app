@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../Menu_page/Model/json_model.dart';
+
 class Globals {
   static Color bgColor = Color(0xff0475ff);
   static Color price = Color(0xff0d0000);
@@ -21,3 +23,5 @@ class Globals {
     fontWeight: FontWeight.w500,
   );
 }
+
+List<Food> addedProducts = [];
